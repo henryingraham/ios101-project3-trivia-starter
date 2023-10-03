@@ -28,7 +28,13 @@ The following **additional** features are implemented:
 
 ## Video Walkthrough
 
-<div style="position: relative; padding-bottom: 214.28571428571428%; height: 0;"><iframe src="https://www.loom.com/embed/e83341dc54dc4dad9f357a6cd2d91894?sid=ebf0d54c-0a7c-4999-b7ed-55c14355b825" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+<div>
+    <a href="https://www.loom.com/share/e83341dc54dc4dad9f357a6cd2d91894">
+    </a>
+    <a href="https://www.loom.com/share/e83341dc54dc4dad9f357a6cd2d91894">
+      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/e83341dc54dc4dad9f357a6cd2d91894-with-play.gif">
+    </a>
+  </div>
 
 ## Notes
 
