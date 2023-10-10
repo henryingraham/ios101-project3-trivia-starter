@@ -1,8 +1,8 @@
-# Project 3 - *Trivia*
+# Project 4 - *Trivia*
 
 Submitted by: **Henry Ingraham**
 
-**Trivia** is an app that quizzes the user
+**Trivia** is an app that quizzes the user on general knowledge questions
 
 Time spent: **5** hours spent in total
 
@@ -10,17 +10,18 @@ Time spent: **5** hours spent in total
 
 The following **required** functionality is completed:
 
-- [ ] User can view the current question and 4 different answers
-- [ ] User can view the next question after tapping an answer
-- [ ] User can answer at least 3 different questions
+- [x] User can view and answer at least 5 trivia questions.
+- [x] App retrieves question data from the Open Trivia Database API.
+- [x] Fetch a different set of questions if the user indicates they would like to reset the game.
+- [x] Users can see score after submitting all questions.
+- [ ] True or False questions only have two options.
 
 
 The following **optional** features are implemented:
 
-- [x] User can use the vertical orientation of the app on any device
-- [x] User can track the question they are on and how many questions are left
-- [x] User can see how many questions they got correct after answering all questions
-- [x] User should be able to restart the game after they've finished answering all questions
+  
+- [ ] Allow the user to choose a specific category of questions.
+- [ ] Provide the user feedback on whether each question was correct before navigating to the next.
 
 The following **additional** features are implemented:
 
@@ -29,10 +30,10 @@ The following **additional** features are implemented:
 ## Video Walkthrough
 
 <div>
-    <a href="https://www.loom.com/share/e83341dc54dc4dad9f357a6cd2d91894">
+    <a href="https://www.loom.com/share/e024bdff7ec348998ba6204e9d5edb6a">
     </a>
-    <a href="https://www.loom.com/share/e83341dc54dc4dad9f357a6cd2d91894">
-      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/e83341dc54dc4dad9f357a6cd2d91894-with-play.gif">
+    <a href="https://www.loom.com/share/e024bdff7ec348998ba6204e9d5edb6a">
+      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/e024bdff7ec348998ba6204e9d5edb6a-with-play.gif">
     </a>
   </div>
 
