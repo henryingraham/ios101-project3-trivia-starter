@@ -9,7 +9,7 @@ import Foundation
 
 class TriviaQuestionService {
     static func fetchQuestions(completion: ((CurrentTriviaQuestions) -> Void)? = nil) {
-        let parameters = "amount=10&difficulty=easy&type=multiple"
+        let parameters = "amount=10&difficulty=easy"
         let url = URL(string: "https://opentdb.com/api.php?\(parameters)")!
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             guard error == nil else {

@@ -28,18 +28,41 @@ class TriviaViewController: UIViewController {
     @IBOutlet weak var answerButton4: UIButton!
     
     @IBAction func didTapButton(_ sender: UIButton) {
+        answerButton1.isUserInteractionEnabled = false
+        answerButton2.isUserInteractionEnabled = false
+        answerButton3.isUserInteractionEnabled = false
+        answerButton4.isUserInteractionEnabled = false
+        
         let selectedAnswer = sender.titleLabel?.text
         let currentQuestion = questions[index]
-        if selectedAnswer == currentQuestion.correct_answer {
-            correctAnswerCount += 1
-        }
-        index += 1
-        if index < questions.count {
-            displayQuestion()
-        } else {
-            // The game is over, show an alert with the score
-            showScoreAlert()
+        let correctAnswer = currentQuestion.correct_answer.decodeHTML()
         
+        if selectedAnswer == correctAnswer {
+            // If the selected answer is correct, turn the button green
+            sender.backgroundColor = UIColor.green
+            correctAnswerCount += 1
+        } else {
+            // If the selected answer is incorrect, turn the button red
+            sender.backgroundColor = UIColor.red
+        }
+        
+        // Wait for a short duration (e.g., 1 second) to show the feedback
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            // Enable interaction with buttons and reset their background color
+            self.answerButton1.isUserInteractionEnabled = true
+            self.answerButton2.isUserInteractionEnabled = true
+            self.answerButton3.isUserInteractionEnabled = true
+            self.answerButton4.isUserInteractionEnabled = true
+            
+            sender.backgroundColor = UIColor.lightText
+            
+            self.index += 1
+            if self.index < self.questions.count {
+                self.displayQuestion()
+            } else {
+                // The game is over, show an alert with the score
+                self.showScoreAlert()
+            }
         }
     }
     private func resetGame() {
@@ -83,15 +106,33 @@ class TriviaViewController: UIViewController {
             questionNumber.text = "Question: \(index + 1)/\(questions.count)"
             questionText.text = currentQuestion.question.decodeHTML()
             questionCategory.text = "Category: \(currentQuestion.category)"
-            answerButton1.setTitle(currentQuestion.incorrect_answers[0].decodeHTML(), for: .normal)
-            answerButton2.setTitle(currentQuestion.incorrect_answers[1].decodeHTML(), for: .normal)
-            answerButton3.setTitle(currentQuestion.incorrect_answers[2].decodeHTML(), for: .normal)
-            answerButton4.setTitle(currentQuestion.correct_answer.decodeHTML(), for: .normal)
+            
+            // Check if the question is true or false
+            if currentQuestion.type == "boolean" {
+                // For true or false questions, display only the first two answer choices
+                var answerChoices = ["True", "False"]
+                answerChoices.shuffle()
+                answerButton1.setTitle(answerChoices[0], for: .normal)
+                answerButton2.setTitle(answerChoices[1], for: .normal)
+                answerButton3.isHidden = true
+                answerButton4.isHidden = true
+            } else {
+                // For other types of questions, display all four answer choices
+                var answerChoices = currentQuestion.incorrect_answers + [currentQuestion.correct_answer]
+                answerChoices.shuffle()
+                answerButton1.setTitle(answerChoices[0].decodeHTML(), for: .normal)
+                answerButton2.setTitle(answerChoices[1].decodeHTML(), for: .normal)
+                answerButton3.setTitle(answerChoices[2].decodeHTML(), for: .normal)
+                answerButton4.setTitle(answerChoices[3].decodeHTML(), for: .normal)
+                answerButton3.isHidden = false
+                answerButton4.isHidden = false
+            }
         } else {
             // The game is over, show an alert with the score
             showScoreAlert()
         }
     }
+
     
 
 }
