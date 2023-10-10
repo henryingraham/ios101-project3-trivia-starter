@@ -7,20 +7,11 @@
 import UIKit
 import Foundation
 
-struct TriviaQuestion {
-    let questionNumber: Int
-    let questionCategory: String
-    let questionText: String
-    let answer1: String
-    let answer2: String
-    let answer3: String
-    let answer4: String
-    let correctAnswer: String
-}
-
-enum CorrectAnswer: Int {
-    case answer1 = 1
-    case answer2 = 2
-    case answer3 = 3
-    case answer4 = 4
+struct CurrentTriviaQuestion: Codable {
+    let category: String
+    let type: String
+    let difficulty: String
+    let question: String
+    let correct_answer: String
+    let incorrect_answers: [String]
 }
